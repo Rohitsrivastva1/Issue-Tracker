@@ -1,0 +1,7 @@
+<form [formGroup]="issueForm">
+  <label>Date</label>
+  <input type="date" formControlName="date">
+  <!-- Add other form controls for issue details -->
+
+  <button type="button" (click)="onSubmit()">Submit Issue</button>
+</form>

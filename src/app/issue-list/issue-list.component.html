@@ -1,0 +1,19 @@
+<div class="container">
+  <h2 class="mt-5">Issue List</h2>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>User Name</th>
+        <!-- Add other column headers here -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let issue of issues">
+        <td>{{ issue.userId }}</td>
+        <td>{{ issue.userName }}</td>
+        <!-- Display other issue properties here -->
+      </tr>
+    </tbody>
+  </table>
+</div>

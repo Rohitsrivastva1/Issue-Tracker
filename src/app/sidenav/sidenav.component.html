@@ -1,0 +1,21 @@
+<h3>
+  thsi is inisde
+</h3>
+<mat-sidenav-container class="example-container" *ngIf="shouldRun">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [(opened)]="opened"
+    (opened)="events.push('open!')"
+    (closed)="events.push('close!')"
+  >
+    Sidenav content <h1>rt</h1>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Add arrow button -->
+    <button class="arrow-button" (click)="toggleSidenav()">
+      <i class="fa fa-arrow-left"></i>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

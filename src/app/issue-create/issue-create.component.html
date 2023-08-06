@@ -1,0 +1,6 @@
+<button (click)="openModal()">Create New Issue</button>
+<!-- Show the popup when showModal is true -->
+<div *ngIf="showModal" class="modal">
+  <input type="text" [(ngModel)]="employeeId" placeholder="Enter Employee ID">
+  <button (click)="checkEmployeeId(employeeId)">Continue</button>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+  <h2 class="mt-5">Create New Issue</h2>
+  <form [formGroup]="issueForm" class="mt-4">
+    <div class="form-group">
+      <label for="userId">User ID</label>
+      <input type="text" class="form-control" id="userId" formControlName="userId" placeholder="Enter User ID">
+    </div>
+    <div class="form-group">
+      <label for="userName">User Name</label>
+      <input type="text" class="form-control" id="userName" formControlName="userName" placeholder="Enter User Name">
+    </div>
+    <div class="form-group">
+      <label for="circle">Circle</label>
+      <input type="text" class="form-control" id="circle" formControlName="circle" placeholder="Enter Circle">
+    </div>
+    <div class="form-group">
+      <label for="ba">BA</label>
+      <input type="text" class="form-control" id="ba" formControlName="ba" placeholder="Enter BA">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Enter Phone">
+    </div>
+    <div class="form-group">
+      <label for="affectedUsers">Number of Affected Users</label>
+      <input type="number" class="form-control" id="affectedUsers" formControlName="affectedUsers" placeholder="Enter Number of Affected Users">
+    </div>
+    <div class="form-group">
+      <label for="issueCategories">Issue Categories</label>
+      <input type="text" class="form-control" id="issueCategories" formControlName="issueCategories" placeholder="Enter Issue Categories">
+    </div>
+    <div class="form-group">
+      <label for="issueDate">Issue Date</label>
+      <input type="date" class="form-control" id="issueDate" formControlName="issueDate">
+    </div>
+    <div class="form-group">
+      <label for="resolutionTime">Resolution Time</label>
+      <input type="time" class="form-control" id="resolutionTime" formControlName="resolutionTime">
+    </div>
+    <div class="form-group">
+      <label for="issueDescription">Issue Description</label>
+      <textarea class="form-control" id="issueDescription" formControlName="issueDescription" rows="4" placeholder="Enter Issue Description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <input type="text" class="form-control" id="status" formControlName="status" placeholder="Enter Status">
+    </div>
+    <div class="form-group">
+      <label for="remarks">Remarks</label>
+      <textarea class="form-control" id="remarks" formControlName="remarks" rows="4" placeholder="Enter Remarks"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="ticketCreatedBy">Ticket Created By</label>
+      <input type="text" class="form-control" id="ticketCreatedBy" formControlName="ticketCreatedBy" placeholder="Enter Ticket Created By">
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="issueForm.invalid">Submit</button>
+  </form>
+</div>

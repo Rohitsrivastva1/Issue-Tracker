@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <form [formGroup]="loginForm"> <!-- Bind the FormGroup to the form element -->
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" placeholder="Enter username" formControlName="username"> <!-- Bind to form control -->
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"> <!-- Bind to form control -->
+        </div>
+        <button type="button" (click)="onSubmit()">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
