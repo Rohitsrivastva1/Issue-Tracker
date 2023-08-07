@@ -1,18 +1,38 @@
-<div class="container">
-  <h2 class="mt-5">Issue List</h2>
-  <table class="table mt-4">
+<div class="container mt-5">
+  <h2>Issue List</h2>
+  <table class="table">
     <thead>
       <tr>
         <th>User ID</th>
         <th>User Name</th>
-        <!-- Add other column headers here -->
+        <th>Circle</th>
+        <th>BA</th>
+        <th>Phone</th>
+        <th>Affected Users</th>
+        <th>Issue Categories</th>
+        <th>Issue Date</th>
+        <th>Resolution Time</th>
+        <th>Issue Description</th>
+        <th>Status</th>
+        <th>Remarks</th>
+        <th>Ticket Created By</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let issue of issues">
         <td>{{ issue.userId }}</td>
         <td>{{ issue.userName }}</td>
-        <!-- Display other issue properties here -->
+        <td>{{ issue.circle }}</td>
+        <td>{{ issue.ba }}</td>
+        <td>{{ issue.phone }}</td>
+        <!-- <td>{{ issue.affectedUsers }}</td> -->
+        <td>{{ issue.issueCategories }}</td>
+        <td>{{ issue.issueDate | date: 'medium' }}</td>
+        <td>{{ issue.resolutionTime }}</td>
+        <td>{{ issue.issueDescription }}</td>
+        <td>{{ issue.status }}</td>
+        <td>{{ issue.remarks }}</td>
+        <td>{{ issue.ticketCreatedBy }}</td>
       </tr>
     </tbody>
   </table>

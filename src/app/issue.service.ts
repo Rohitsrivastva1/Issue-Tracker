@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -6,13 +8,13 @@ import { Injectable } from '@angular/core';
 export class IssueService {
   issues: any[] = [];
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   addIssue(issueData: any) {
     this.issues.push(issueData);
   }
 
-  getIssues() {
-    return this.issues;
+  getIssues(): Observable<any[]> {
+    return this.http.get<any[]>('/api/issues');
   }
 }

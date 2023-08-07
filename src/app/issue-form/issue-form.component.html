@@ -3,7 +3,8 @@
   <form [formGroup]="issueForm" class="mt-4">
     <div class="form-group">
       <label for="userId">User ID</label>
-      <input type="text" class="form-control" id="userId" formControlName="userId" placeholder="Enter User ID">
+<input type="text" class="form-control" id="userId" formControlName="userId" placeholder="Enter User ID"
+       (keyup.enter)="onUserIdEnter($event)">
     </div>
     <div class="form-group">
       <label for="userName">User Name</label>
@@ -29,22 +30,23 @@
       <label for="issueCategories">Issue Categories</label>
       <input type="text" class="form-control" id="issueCategories" formControlName="issueCategories" placeholder="Enter Issue Categories">
     </div>
-    <div class="form-group">
-      <label for="issueDate">Issue Date</label>
-      <input type="date" class="form-control" id="issueDate" formControlName="issueDate">
-    </div>
-    <div class="form-group">
-      <label for="resolutionTime">Resolution Time</label>
-      <input type="time" class="form-control" id="resolutionTime" formControlName="resolutionTime">
+   <label for="issueDate">Issue Date and Time</label>
+    <div class="input-group">
+      <input type="datetime-local" class="form-control" id="issueDate" formControlName="issueDate">
+      <div class="input-group-append">
+        <button type="button" class="btn btn-secondary" (click)="preFillDateTime()">Now</button>
+      </div>
     </div>
     <div class="form-group">
       <label for="issueDescription">Issue Description</label>
       <textarea class="form-control" id="issueDescription" formControlName="issueDescription" rows="4" placeholder="Enter Issue Description"></textarea>
     </div>
     <div class="form-group">
-      <label for="status">Status</label>
-      <input type="text" class="form-control" id="status" formControlName="status" placeholder="Enter Status">
-    </div>
+    <label for="status">Status</label>
+    <select class="form-control" id="status" formControlName="status">
+      <option *ngFor="let option of statusOptions" [value]="option">{{ option }}</option>
+    </select>
+  </div>
     <div class="form-group">
       <label for="remarks">Remarks</label>
       <textarea class="form-control" id="remarks" formControlName="remarks" rows="4" placeholder="Enter Remarks"></textarea>
@@ -54,6 +56,7 @@
       <input type="text" class="form-control" id="ticketCreatedBy" formControlName="ticketCreatedBy" placeholder="Enter Ticket Created By">
     </div>
     
-    <button type="submit" class="btn btn-primary" [disabled]="issueForm.invalid">Submit</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
   </form>
 </div>
+

@@ -31,29 +31,37 @@ def login():
 def get_user_data():
     data = request.json
     user_id = data.get('userId')
-
+    print(user_id)
     # Load Excel file
-    wb = openpyxl.load_workbook('user_data.xlsx')
-    ws = wb.active
+    # wb = openpyxl.load_workbook('user_data.xlsx')
+    # ws = wb.active
 
     # Find the row with the matching user ID
     user_row = None
-    for row in ws.iter_rows(min_row=2, values_only=True):
-        if row[0] == user_id:
-            user_row = row
-            break
+    # for row in ws.iter_rows(min_row=2, values_only=True):
+        # if row[0] == user_id:
+        #     user_row = row
+        #     break
 
-    if user_row:
-        user_data = {
-            'userName': user_row[1],
-            'circle': user_row[2],
-            'ba': user_row[3],
-            'phone': user_row[4]
-            # Add more fields as needed
-        }
-        return jsonify(user_data)
-    else:
-        return jsonify({'message': 'User not found'}), 404
+    user_data = {
+        'userName': 'rohit',
+        'circle': 'punjab',
+        'ba': 'ci',
+        'phone': '6394322640'
+        # Add more fields as needed
+    }
+    # if user_row:
+    #     user_data = {
+    #         'userName': user_row[1],
+    #         'circle': user_row[2],
+    #         'ba': user_row[3],
+    #         'phone': user_row[4]
+    #         # Add more fields as needed
+    #     }
+    #     return jsonify(user_data)
+    return jsonify(user_data)
+    # else:
+    #     return jsonify({'message': 'User not found'}), 404
 
 
 if __name__ == '__main__':
