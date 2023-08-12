@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Issue } from '../models/issue.model'; // Import your Issue model
+import { IssueService } from '../issue.service';
 
 @Component({
   selector: 'app-issue-form',
@@ -20,7 +21,11 @@ export class IssueFormComponent {
     'Rejected',
   ];
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private issueService: IssueService
+  ) {
     this.issueForm = this.fb.group({
       userId: ['', Validators.required],
       userName: ['', Validators.required],
@@ -71,11 +76,20 @@ export class IssueFormComponent {
   }
 
   onSubmit() {
-    // Handle form submission and issue creation here
-    const newIssue: Issue = this.issueForm.value;
-    console.log(newIssue);
-    // Send newIssue to your backend API using HttpClient
-    // You need to set up an API endpoint in your backend to handle this
+    console.log('d')
+    // if (this.issueForm.valid) {
+      const newIssue: Issue = this.issueForm.value;
+      console.log(newIssue)
+      this.issueService.addIssue(newIssue).subscribe(
+        (response) => {
+          console.log('Issue added successfully:', response);
+          // Clear form or perform other actions as needed
+        },
+        (error) => {
+          console.error('Error adding issue:', error);
+        }
+      );
+    // }
   }
 
   preFillDateTime() {

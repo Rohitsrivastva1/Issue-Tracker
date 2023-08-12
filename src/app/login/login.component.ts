@@ -36,5 +36,5 @@ export class LoginComponent {
         console.log('Invalid credentials');
       }
     );
-  }
+  }     
 }
